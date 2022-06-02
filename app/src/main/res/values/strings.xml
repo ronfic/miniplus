@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">miniplus_dev</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+    <string name="mp_version">v.1.0.9</string>
+
+    <string name="description_deferred_reboot">
+        Hi! I\'m an app that wants to defer reboots because they might interfere with the user or
+        with other operations.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="current_version_info">Android Things version: %s\nOEM version: %s</string>
+    <string name="pending_version_info">New Android Things version: %s\nNew OEM version: %s</string>
+
+    <string name="status_idle">Status: device is up to date</string>
+    <string name="status_checking">Status: checking for updates</string>
+    <string name="status_update_available">Status: an update is available</string>
+    <string name="status_downloading">Status: downloading update (%d%%)</string>
+    <string name="status_finalizing">Status: finalizing update</string>
+    <string name="status_needs_reboot">Status: updated, ready to restart</string>
+    <string name="status_error">Status: an error occurred</string>
+
+    <string name="reboot_message">Your device will restart automatically at %s.</string>
+
+    <string name="update_channel">Update channel:</string>
+    <string name="check_now">Check now</string>
+    <string name="restart_now">Restart now</string>
+    <string name="restarting">Restarting...</string>
+
+    <string-array name="custom_weekdays">
+        <item>Su</item>
+        <item>Mo</item>
+        <item>Tu</item>
+        <item>We</item>
+        <item>Th</item>
+        <item>Fr</item>
+        <item>Sa</item>
+    </string-array>
+
+    <string-array name="custom_months">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
+
+    <string-array name="sp_WorkType_StringArray">
+        <item>Type 1</item>
+        <item>Type 2</item>
+        <item>Type 3</item>
+        <item>Type 4</item>
+        <item>Type 5</item>
+        <item>Type 6</item>
+        <item>Type 7</item>
+        <item>Type 8</item>
+        <item>Type 9</item>
+        <item>Type 10</item>
+        <item>Type 11</item>
+        <item>Type 12</item>
+        <item>Type 13</item>
+        <item>Type 14</item>
+        <item>Type 15</item>
+        <item>Type 16</item>
+        <item>Type 17</item>
+        <item>Type 18</item>
+        <item>Type 19</item>
+        <item>Type 20</item>
+    </string-array>
+</resources>

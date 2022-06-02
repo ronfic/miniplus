@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/csv_bg"
+    tools:context=".CSVActivity">
+    <FrameLayout
+        android:id="@+id/frame"
+        android:clickable="true"
+        android:layout_width="1219px"
+        android:layout_height="644px"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginLeft="36px"
+        android:layout_marginTop="44px"
+        android:background="@drawable/bg_graphic">
+
+        <FrameLayout
+            android:layout_width="540px"
+            android:layout_height="540px"
+            android:layout_marginTop="47px"
+            android:layout_marginLeft="47px"
+            android:background="@drawable/calendar_line">
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/materialCalendar"
+                android:layout_width="467px"
+                android:layout_height="415px"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center"
+                app:mcv_tileHeight="38dp"
+                app:mcv_arrowColor="@color/white"
+                app:mcv_dateTextAppearance="@style/CalendarWidgetday"
+                app:mcv_headerTextAppearance="@style/CalendarWidgetHeader"
+                app:mcv_selectionColor="@color/lime_overlay"
+                app:mcv_weekDayTextAppearance="@style/CalendarWidgetWeekday"/>
+                <!--
+                android:background="@drawable/screenshot"
+                android:background="@color/darkgray"
+                달력 배경 색 수정이나 배경 그림 수정 가능
+                -->
+        </FrameLayout>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="427px"
+            android:layout_height="58px"
+            android:layout_marginLeft="722px"
+            android:layout_marginTop="115px"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/montserratbold"
+            android:text="                           SEND"
+            android:textSize="27dp"
+            android:background="@drawable/btn_send"/>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="268px"
+            android:layout_height="96px"
+            android:layout_marginLeft="889px"
+            android:layout_marginTop="30px"
+            android:background="#00ff0000"/>
+
+        <ImageView
+            android:layout_width="247px"
+            android:layout_height="51px"
+            android:layout_marginLeft="905px"
+            android:layout_marginTop="70px"
+            android:background="@drawable/btn_csvback"/>
+        <TextView
+            android:layout_width="130px"
+            android:layout_height="55px"
+            android:layout_marginLeft="990px"
+            android:layout_marginTop="51px"
+            android:fontFamily="@font/montserratbold"
+            android:text="BACK"
+            android:textColor="@color/miniplus_color"
+            android:textSize="27dp"/>
+
+        <TextView
+            android:id="@+id/phase1"
+            android:text="회원 선택"
+            android:textSize="25dp"
+            android:textColor="@color/red_overlay"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="450dp"
+            android:visibility="gone"/>
+        <FrameLayout
+            android:layout_width="535px"
+            android:layout_height="165px"
+            android:layout_marginLeft="618px"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/email_area">
+            <EditText
+                android:id="@+id/edtxt"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="40px"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/montserratregular"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"
+                android:textColorHint="@color/black_overlay"
+                android:hint="이메일 주소"
+                android:background="@null"/>
+        </FrameLayout>
+        <TextView
+            android:id="@+id/phase2"
+            android:text="날짜 선택"
+            android:textSize="25dp"
+            android:textColor="@color/red_overlay"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="425dp"
+            android:layout_marginTop="450dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/phase3"
+            android:text="메일 주소"
+            android:textSize="25dp"
+            android:textColor="@color/red_overlay"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="550dp"
+            android:layout_marginTop="450dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/phase4"
+            android:text="파일 생성"
+            android:textSize="25dp"
+            android:textColor="@color/black_overlay"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="675dp"
+            android:layout_marginTop="450dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/phase5"
+            android:text="메일 전송"
+            android:textSize="25dp"
+            android:textColor="@color/black_overlay"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="800dp"
+            android:layout_marginTop="450dp"
+            android:visibility="gone"/>
+
+
+    </FrameLayout>
+</LinearLayout>

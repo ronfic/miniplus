@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/layout_selectMode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_basic">
+
+
+            <TextView
+                android:id="@+id/txt_errorCode"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="120px"
+                android:layout_marginLeft="20px"
+                android:gravity="center|left"
+                android:fontFamily="@font/orbitronregular"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="20sp"
+                android:text="ERROR : "/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <Button
+                    android:id="@+id/btn_wifi"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:layout_marginLeft="360px"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/btn_wifi_able" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/txt_wifiName"
+                android:layout_width="200px"
+                android:layout_height="20px"
+                android:layout_marginLeft="360px"
+                android:layout_marginTop="45dp"
+                android:gravity="center|left"
+                android:fontFamily="@font/orbitronregular"
+                android:textColor="@android:color/background_light"
+                android:textSize="10px"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/txt_loadCellValueMain"
+                android:layout_width="150px"
+                android:layout_height="50px"
+                android:layout_marginLeft="50px"
+                android:gravity="center|left"
+                android:fontFamily="@font/orbitronregular"
+                android:textColor="#CC0F0F33"
+                android:textSize="8sp"
+                android:text="100" />
+
+            <ImageView
+                android:id="@+id/image_initial"
+                android:layout_width="320px"
+                android:layout_height="120px"
+                android:layout_marginLeft="5px"
+                android:layout_marginTop="10px"
+                android:background="@drawable/txt_miniplus" />
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="240px"
+                android:layout_height="100px"
+                android:layout_marginTop="450dp"
+                android:layout_marginLeft="30px"
+                android:background="@drawable/btn_reset"/>
+
+
+            <Button
+                android:id="@+id/btn_admin"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="450dp"
+                android:layout_marginLeft="200dp"
+                android:background="#00000000"/>
+
+
+            <LinearLayout
+                android:id="@+id/layout_update"
+                android:layout_width="380px"
+                android:layout_height="80px"
+                android:layout_marginTop="620px"
+                android:layout_marginLeft="800px">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80px"
+                    android:fontFamily="@font/orbitronregular"
+                    android:gravity="center"
+                    android:text="새 버전이 있습니다 >>"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="20sp" />
+                <Button
+                    android:id="@+id/btn_update"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:background="@drawable/measure_btn_balloon"/>
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_width="400px"
+                android:layout_height="80px"
+                android:layout_marginLeft="440px"
+                android:layout_marginTop="10px"
+                android:fontFamily="@font/orbitronbold"
+                android:gravity="center"
+                android:text="Select Mode"
+                android:textColor="@android:color/background_light"
+                android:textSize="40px" />
+
+            <Button
+                android:id="@+id/btn_logOut"
+                android:layout_width="80px"
+                android:layout_height="40px"
+                android:layout_marginTop="40px"
+                android:layout_marginLeft="820px"
+                android:background="@drawable/btn_logout"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:layout_width="300px"
+                android:layout_height="100px"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="950px"
+                android:gravity="center|right">
+                <TextView
+                    android:id="@+id/txt_userInfo"
+                    android:layout_width="200px"
+                    android:layout_height="80px"
+                    android:layout_marginLeft="950px"
+                    android:fontFamily="@font/orbitronbold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:background="#00000000"/>
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="350px"
+                android:layout_height="350px"
+                android:layout_gravity="center"
+                android:layout_marginTop="50px"
+                android:background="@drawable/ic_ronfic" />
+
+            <ImageView
+                android:layout_width="720px"
+                android:layout_height="400px"
+                android:layout_gravity="center"
+                android:layout_marginTop="50px"
+                android:background="@drawable/img_login" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="400px"
+                android:layout_height="400px"
+                android:layout_gravity="center"
+                android:layout_marginTop="50px"
+                android:layout_marginRight="370px"
+                android:background="@drawable/btn_login" />
+            <Button
+                android:id="@+id/btn_measure"
+                android:layout_width="400px"
+                android:layout_height="400px"
+                android:layout_gravity="center"
+                android:layout_marginTop="50px"
+                android:layout_marginRight="370px"
+                android:background="@drawable/btn_measure"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_exerciseMode"
+                android:layout_width="400px"
+                android:layout_height="400px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="370px"
+                android:layout_marginTop="50px"
+                android:background="@drawable/btn_guest" />
+
+            <LinearLayout
+                android:id="@+id/loginPad"
+                android:layout_width="350px"
+                android:layout_height="470px"
+                android:layout_gravity="center"
+                android:layout_marginTop="50px"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_admin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="ip : " />
+
+                <TextView
+                    android:id="@+id/txt_networkInfo"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="0.0.0.0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="serial : " />
+
+                <TextView
+                    android:id="@+id/txt_serialNum"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="제품코드를 입력해주세요." />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="ver : " />
+
+                <TextView
+                    android:id="@+id/txt_versionInfo"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="0.0.0.0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="con ver : " />
+
+                <TextView
+                    android:id="@+id/txt_conversionInfo"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="stiction : " />
+
+                <TextView
+                    android:id="@+id/txt_stictionValue"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="100" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="Club : " />
+
+                <TextView
+                    android:id="@+id/txt_clubId"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="100" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="LoadCell : " />
+
+                <TextView
+                    android:id="@+id/txt_loadCellValue"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="100" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30px"
+                    android:text="Email : " />
+
+                <TextView
+                    android:id="@+id/txt_Email"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/orbitronbold"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18px"
+                    android:text="스크린샷을 받을 메일을 입력해주세요" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_reboot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="restart"
+                    android:background="#AA0000"/>
+
+                <Button
+                    android:id="@+id/btn_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="back"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

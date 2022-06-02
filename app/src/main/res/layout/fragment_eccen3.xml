@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_upWeight"
+            android:layout_width="170px"
+            android:layout_height="170px"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="5px"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="40px"
+            android:text="100"
+            android:background="@drawable/btn_setbig_press"/>
+
+        <Button
+            android:id="@+id/btn_dnWeight"
+            android:layout_width="170px"
+            android:layout_height="170px"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="180px"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="40px"
+            android:text="100"
+            android:background="@drawable/btn_setbig_nopress"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="170px"
+        android:layout_height="40px"
+        android:layout_marginTop="150px"
+        android:layout_marginLeft="5px"
+        android:gravity="center"
+        android:fontFamily="@font/orbitronbold"
+        android:textColor="@android:color/background_light"
+        android:textSize="25px"
+        android:text="kg"/>
+    <TextView
+        android:layout_width="170px"
+        android:layout_height="40px"
+        android:layout_marginTop="150px"
+        android:layout_marginLeft="180px"
+        android:gravity="center"
+        android:fontFamily="@font/orbitronbold"
+        android:textColor="@android:color/background_light"
+        android:textSize="25px"
+        android:text="kg"/>
+
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="230px"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="370px"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_upHigh"
+            android:layout_width="80px"
+            android:layout_height="50px"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="25px"
+            android:text="+5"
+            android:background="@drawable/btn_set"/>
+
+        <Button
+            android:id="@+id/btn_upLow"
+            android:layout_width="80px"
+            android:layout_height="50px"
+            android:layout_marginTop="10px"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="25px"
+            android:text="+1"
+            android:background="@drawable/btn_set"/>
+
+        <Button
+            android:id="@+id/btn_dnLow"
+            android:layout_width="80px"
+            android:layout_height="50px"
+            android:layout_marginTop="10px"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="25px"
+            android:text="-1"
+            android:background="@drawable/btn_set"/>
+
+        <Button
+            android:id="@+id/btn_dnHigh"
+            android:layout_width="80px"
+            android:layout_height="50px"
+            android:layout_marginTop="10px"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="25px"
+            android:text="-5"
+            android:background="@drawable/btn_set"/>
+    </LinearLayout>
+
+</FrameLayout>

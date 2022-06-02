@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.IsotonicSettingFrag">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.5"
+        android:layout_marginVertical="30dp"
+        android:layout_marginHorizontal="80dp">
+
+        <ImageButton
+            android:id="@+id/imageBtn_weight_up"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/weight_up_press" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/textView_weight_up"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="5"
+                android:fontFamily="@font/orbitronbold"
+                android:textColor="@android:color/background_dark"
+                android:textSize="70dp" />
+
+            <ImageView
+                android:id="@+id/weightUp_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/weightmode"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <ImageButton
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:id="@+id/imageBtn_reset"
+        android:text="reset" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_marginVertical="30dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/imageBtn_weight_dn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/weight_down_press" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:id="@+id/textView_weight_dn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="5"
+                android:fontFamily="@font/orbitronbold"
+                android:textColor="@android:color/background_dark"
+                android:textSize="70dp" />
+
+            <ImageView
+                android:id="@+id/weightDn_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/weightmode"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="13dp"
+                android:visibility="gone" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:layout_marginLeft="5dp"
+        android:layout_marginVertical="30dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/setting_onekg" />
+
+        <Button
+            android:id="@+id/imageBtn_p1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#00000000" />
+
+        <TextView
+            android:id="@+id/one_kg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:textSize="50dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:gravity="center"
+            android:textColor="@android:color/holo_orange_light" />
+
+        <Button
+            android:id="@+id/imageBtn_n1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:background="#00000000" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:layout_marginLeft="5dp"
+        android:layout_marginVertical="30dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/setting_fivekg" />
+
+        <Button
+            android:id="@+id/imageBtn_p5"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#00000000" />
+
+        <TextView
+            android:id="@+id/fv_kg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="5"
+            android:textSize="50dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:gravity="center"
+            android:textColor="@android:color/holo_orange_dark" />
+
+        <Button
+            android:id="@+id/imageBtn_n5"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+
+            android:background="#00000000" />
+    </FrameLayout>
+
+</LinearLayout>

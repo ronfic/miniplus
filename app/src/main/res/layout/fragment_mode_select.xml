@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/whole_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="350px"
+            android:layout_height="520px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/bg_numpad">
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="52px"
+            android:layout_height="52px"
+            android:layout_marginLeft="70dp"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="15dp"
+            android:text="X"
+            android:backgroundTint="@android:color/transparent"/>
+        <Button
+            android:id="@+id/btn_isokineticMode"
+            android:layout_width="220px"
+            android:layout_height="52px"
+            android:layout_marginBottom="10px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="18px"
+            android:text="ISOKINETIC"
+            android:background="@drawable/btn_mode_sel" />
+        <Button
+            android:id="@+id/btn_isokineticBiMode"
+            android:layout_width="220px"
+            android:layout_height="52px"
+            android:layout_marginBottom="10px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="18px"
+            android:text="ISOKINETIC-BI"
+            android:background="@drawable/btn_mode_sel"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/btn_eccentricMode"
+            android:layout_width="220px"
+            android:layout_height="52px"
+            android:layout_marginBottom="10px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="18px"
+            android:text="ECCENTRIC"
+            android:background="@drawable/btn_mode_sel" />
+        <Button
+            android:id="@+id/btn_springMode"
+            android:layout_width="220px"
+            android:layout_height="52px"
+            android:layout_marginBottom="10px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="18px"
+            android:text="SPRING"
+            android:background="@drawable/btn_mode_sel" />
+        <Button
+            android:id="@+id/btn_dampingMode"
+            android:layout_width="220px"
+            android:layout_height="52px"
+            android:layout_marginBottom="10px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="18px"
+            android:text="DAMPING"
+            android:background="@drawable/btn_mode_sel" />
+        <Button
+            android:id="@+id/btn_vibrationMode"
+            android:layout_width="220px"
+            android:layout_height="52px"
+            android:layout_marginBottom="10px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/orbitronbold"
+            android:textColor="@android:color/background_light"
+            android:textSize="18px"
+            android:text="VIBRATION"
+            android:background="@drawable/btn_mode_sel" />
+
+    </LinearLayout>
+</LinearLayout>
