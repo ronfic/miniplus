@@ -964,13 +964,13 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
         btn_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (PublicValues.director.equals("1")) {
+                //if (PublicValues.director.equals("1")) {
                     i_btnAdminCnt++;
                     if (i_btnAdminCnt > 5) {
                         layout_selectMode.setVisibility(View.GONE);
                         layout_admin.setVisibility(View.VISIBLE);
                     }
-                }
+                //}
             }
         });
 
@@ -1539,7 +1539,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
 
         HashMap<String, UsbDevice> deviceList = manager.getDeviceList();
         Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
-        while(deviceIterator.hasNext()){
+/*        while(deviceIterator.hasNext()){
             UsbDevice device = deviceIterator.next();
             Log.e(TAG, "QQQ = " + device.getProductName());
             Log.e(TAG, "QQQ = " + device.getVendorId());
@@ -1547,7 +1547,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
 
 
             //your code
-        }
+        }*/
 
 
     }
