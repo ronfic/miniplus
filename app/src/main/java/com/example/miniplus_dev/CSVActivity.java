@@ -373,13 +373,13 @@ public class CSVActivity extends Activity {
 
                     if(edtxt.getText().length() == 0) {
                         Log.e("메일 보내기", PublicValues.configValues.get(4));
-                        edtxt.setText(PublicValues.configValues.get(4).toString());
+                        edtxt.setText(PublicValues.configValues.get(4));
 
                     }
                     if(oneDay)
-                        GetData_reps_user("http://211.253.30.245/equipment/kor/miniplus/Miniplus_SetData_SEL3.php?clubs_id=" + PublicValues.userClub + "&workout_datetime1=" + strDateList.get(0).toString().trim() + "&workout_datetime2=" + strDateList.get(0).toString().trim());
+                        GetData_reps_user("http://211.253.30.245/equipment/kor/miniplus/Miniplus_SetData_SEL3.php?clubs_id=" + PublicValues.userClub + "&workout_datetime1=" + strDateList.get(0).trim() + "&workout_datetime2=" + strDateList.get(0).trim());
                     else if(twoDay)
-                        GetData_reps_user("http://211.253.30.245/equipment/kor/miniplus/Miniplus_SetData_SEL3.php?clubs_id=" + PublicValues.userClub + "&workout_datetime1=" + strDateList.get(0).toString().trim() + "&workout_datetime2=" + strDateList.get(1).toString().trim());
+                        GetData_reps_user("http://211.253.30.245/equipment/kor/miniplus/Miniplus_SetData_SEL3.php?clubs_id=" + PublicValues.userClub + "&workout_datetime1=" + strDateList.get(0).trim() + "&workout_datetime2=" + strDateList.get(1).trim());
                     //u_miniplus_reps에서 miniplus_id를 중복제거해서 가져오지 그후에 u_miniplus에서 id로 검색해서 minilist를 완성시키지
                 }
             }
@@ -589,8 +589,8 @@ public class CSVActivity extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 hideSystemUI();
                 if (position != 0) {
-                    selectID = mArrayadapter_member.getItem(position).toString().substring(0, mArrayadapter_member.getItem(position).toString().indexOf(" - "));
-                    selectName = mArrayadapter_member.getItem(position).toString().substring(12);
+                    selectID = mArrayadapter_member.getItem(position).substring(0, mArrayadapter_member.getItem(position).indexOf(" - "));
+                    selectName = mArrayadapter_member.getItem(position).substring(12);
                     phase1.setTextColor(getColor(R.color.blue_overlay));
                     phase4.setTextColor(getColor(R.color.black_overlay));
                     phase5.setTextColor(getColor(R.color.black_overlay));
@@ -807,7 +807,7 @@ public class CSVActivity extends Activity {
                 if(strDateList.size() == 1)    fw = new BufferedWriter(new FileWriter("sdcard/Download/csvFolder/" + selectName + "_" + strDateList.get(0) + ".csv"));
                 else    fw = new BufferedWriter(new FileWriter("sdcard/Download/csvFolder/" + selectName + "_" + strDateList.get(0) + "_" + strDateList.get(1) + ".csv"));
                 for(int i = 0; i < Data_sets.size(); i++) {
-                    JSONObject jsonObject_SET = (JSONObject) miniList.get(i);
+                    JSONObject jsonObject_SET = miniList.get(i);
                     mode = searchModeType(jsonObject_SET.getString("workoutmode_code"));
                     type = searchModeType(jsonObject_SET.getString("workouttype_code"));
                     for(int j = 0; j < Data_sets.get(i).size(); j++) {
@@ -866,10 +866,10 @@ public class CSVActivity extends Activity {
 
                 phase4.setTextColor(getColor(R.color.blue_overlay));
                 if(strDateList.size() == 1) {
-                    SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), selectName + "님의 " + strDateList.get(0).toString().trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/csvFolder/" + selectName + "_" + strDateList.get(0) + ".csv");
+                    SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), selectName + "님의 " + strDateList.get(0).trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/csvFolder/" + selectName + "_" + strDateList.get(0) + ".csv");
                     mailServer.execute();
                 } else if(strDateList.size() == 2) {
-                    SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), selectName + "님의 " + strDateList.get(0).toString().trim() + " ~ " + strDateList.get(1).toString().trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/csvFolder/" + selectName + "_" + strDateList.get(0) + "_" + strDateList.get(1) + ".csv");
+                    SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), selectName + "님의 " + strDateList.get(0).trim() + " ~ " + strDateList.get(1).trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/csvFolder/" + selectName + "_" + strDateList.get(0) + "_" + strDateList.get(1) + ".csv");
                     mailServer.execute();
                 }
 
@@ -930,7 +930,7 @@ public class CSVActivity extends Activity {
                     GetData_meas("http://211.253.30.245/php/get_miniTest2.php?user_id=" + miniList.get(0).getString("users_id"));
                     for (int i = 0; i < Data_sets.size(); i++) {
                         Log.e("중복아이디", miniList.get(i).getString("users_id") + "    " + i);
-                        JSONObject jsonObject_SET = (JSONObject) miniList.get(i);
+                        JSONObject jsonObject_SET = miniList.get(i);
                         mode = searchModeType(jsonObject_SET.getString("workoutmode_code"));
                         type = searchModeType(jsonObject_SET.getString("workouttype_code"));
                         if(i != 0) {
@@ -977,7 +977,7 @@ public class CSVActivity extends Activity {
                                             rowNum++;
                                             curRow = xsheet.createRow(rowNum);
 
-                                            JSONObject jsonObject_MEAS = (JSONObject) measList.get(k);
+                                            JSONObject jsonObject_MEAS = measList.get(k);
                                             cell = curRow.createCell(14);
                                             cell.setCellValue(jsonObject_MEAS.getString("workoutdate").substring(0, 10));
                                             cell = curRow.createCell(15);
@@ -1306,7 +1306,7 @@ public class CSVActivity extends Activity {
                                     rowNum++;
                                     curRow = xsheet.createRow(rowNum);
 
-                                    JSONObject jsonObject_MEAS = (JSONObject) measList.get(k);
+                                    JSONObject jsonObject_MEAS = measList.get(k);
                                     cell = curRow.createCell(14);
                                     cell.setCellValue(jsonObject_MEAS.getString("workoutdate").substring(0, 10));
                                     cell = curRow.createCell(15);
@@ -1399,7 +1399,6 @@ public class CSVActivity extends Activity {
                     }
                 } catch (JSONException e) {
                     Log.e("측정숫자", e.toString());
-                    ;
                 }
             /*
             xsheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 0));
@@ -1867,10 +1866,10 @@ public class CSVActivity extends Activity {
             */
             phase4.setTextColor(getColor(R.color.blue_overlay));
             if(strDateList.size() == 1) {
-                SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), clubName + "의 " + strDateList.get(0).toString().trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/excelFolder/" + clubName + "_" + strDateList.get(0) + ".xlsx");
+                SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), clubName + "의 " + strDateList.get(0).trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/excelFolder/" + clubName + "_" + strDateList.get(0) + ".xlsx");
                 mailServer.execute();
             } else if(strDateList.size() == 2) {
-                SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), clubName + "의 " + strDateList.get(0).toString().trim() + " ~ " + strDateList.get(1).toString().trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/excelFolder/" + clubName + "_" + strDateList.get(0) + "_" + strDateList.get(1) + ".xlsx");
+                SendMail_Async mailServer = new SendMail_Async(getApplicationContext(), edtxt.getText().toString().trim(), clubName + "의 " + strDateList.get(0).trim() + " ~ " + strDateList.get(1).trim() + "데이터입니다.", "론픽 미니플러스 운동 데이터입니다.", "sdcard/Download/excelFolder/" + clubName + "_" + strDateList.get(0) + "_" + strDateList.get(1) + ".xlsx");
                 mailServer.execute();
             }
 
@@ -1908,7 +1907,7 @@ public class CSVActivity extends Activity {
 
     class MyCustomDotSpan implements LineBackgroundSpan {
 
-        private int radius;
+        private final int radius;
         private int[] color = new int[0];
 
         MyCustomDotSpan(int radius, int[] color) {
@@ -1949,7 +1948,7 @@ public class CSVActivity extends Activity {
         Context context;
         private int radius;
         private int[] colors;
-        private CalendarDay date = CalendarDay.today();
+        private final CalendarDay date = CalendarDay.today();
 
         TodayDecorator() {
 
@@ -2066,8 +2065,8 @@ public class CSVActivity extends Activity {
                 Log.e("달", day.getMonth() + "   " + maxM + "   " + minM);
                 return false;
             } else {
-                if(day.equals(date))    return false;
-                else    return true;    //트루가 색칠
+                //트루가 색칠
+                return !day.equals(date);
             }
         }
 
@@ -2119,7 +2118,7 @@ public class CSVActivity extends Activity {
         Context context;
         private int radius;
         private int[] colors;
-        private CalendarDay date = CalendarDay.today();
+        private final CalendarDay date = CalendarDay.today();
 
         MemberTodayDecorator() {
 
@@ -2146,7 +2145,7 @@ public class CSVActivity extends Activity {
     }
 
     class SundayDecorator implements DayViewDecorator {
-        private Calendar calendar = Calendar.getInstance();
+        private final Calendar calendar = Calendar.getInstance();
 
         public boolean shouldDecorate(@Nullable CalendarDay day) {
             day.copyTo(calendar);
@@ -2160,7 +2159,7 @@ public class CSVActivity extends Activity {
     }
 
     class SaturdayDecorator implements DayViewDecorator {
-        private Calendar calendar = Calendar.getInstance();
+        private final Calendar calendar = Calendar.getInstance();
 
         public boolean shouldDecorate(@Nullable CalendarDay day) {
             day.copyTo(calendar);
@@ -2264,11 +2263,8 @@ public class CSVActivity extends Activity {
                 Log.e("달", day.getMonth() + "   " + maxM + "   " + minM);
                 return false;
             } else {
-                if(workList.contains(String.format("%04d" ,day.getYear()) + "-" + String.format("%02d" ,(day.getMonth() + 1)) + "-" + String.format("%02d" ,day.getDay()))) {
-                    return true;
-                } else {
-                    return false;
-                }   //트루가 색칠
+                //트루가 색칠
+                return workList.contains(String.format("%04d", day.getYear()) + "-" + String.format("%02d", (day.getMonth() + 1)) + "-" + String.format("%02d", day.getDay()));
             }
         }
 
@@ -2303,11 +2299,8 @@ public class CSVActivity extends Activity {
                 Log.e("달", day.getMonth() + "   " + maxM + "   " + minM);
                 return false;
             } else {
-                if(workList.contains(String.format("%04d" ,day.getYear()) + "-" + String.format("%02d" ,(day.getMonth() + 1)) + "-" + String.format("%02d" ,day.getDay()))) {
-                    return false;
-                } else {
-                    return true;
-                }   //트루가 색칠
+                //트루가 색칠
+                return !workList.contains(String.format("%04d", day.getYear()) + "-" + String.format("%02d", (day.getMonth() + 1)) + "-" + String.format("%02d", day.getDay()));
             }
         }
 
@@ -2559,7 +2552,7 @@ public class CSVActivity extends Activity {
                     return sb.toString().trim();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return new String("Exception: " + e.getMessage());
+                    return "Exception: " + e.getMessage();
                 }
             }
             protected void onPostExecute(String result) {
@@ -2757,18 +2750,20 @@ public class CSVActivity extends Activity {
 
 
     public class SendMail_Async extends AsyncTask {
-        private String mailhost = "smtp.gmail.com";
+        private final String mailhost = "smtp.gmail.com";
         private Session session;
 
         String user = "ronfic.co@gmail.com";
-        String password = "rf-00245";
+        //String password = "rf-00245";
+        String password = "imgiyfxtfjebebjt";
+
         String sender = "론픽";
 
-        private Context context;
-        private String recipients;
-        private String subject;
-        private String body;
-        private String filePath;
+        private final Context context;
+        private final String recipients;
+        private final String subject;
+        private final String body;
+        private final String filePath;
 
         public SendMail_Async(Context context, String recipients, String subject, String body, String filePath) {
             this.context = context;

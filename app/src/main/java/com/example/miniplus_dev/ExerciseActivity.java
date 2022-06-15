@@ -112,6 +112,7 @@ import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -146,11 +147,11 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
     CRC16Modbus crc = new CRC16Modbus();
 
-    private String TAG = ExerciseActivity.class.getSimpleName();
+    private final String TAG = ExerciseActivity.class.getSimpleName();
 
-    private int PERMISSION_REQUEST_COARSE_LOCATION = 1;
-    private String MOTER_START_SERIAL = "F2010FA1000000000000000000000000000001FE";
-    private String MOTER_STOP_SERIAL = "F2010FA2000000000000000000000000000001FE";
+    private final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
+    private final String MOTER_START_SERIAL = "F2010FA1000000000000000000000000000001FE";
+    private final String MOTER_STOP_SERIAL = "F2010FA2000000000000000000000000000001FE";
 
     final String [] MODE_NAMES = new String[]{"ISOTONIC", "ISOKINETIC", "ISOKINETIC-BI", "ECCENTRIC", "ECCENTRIC", "ECCENTRIC", "SPRING", "DAMPING", "VIBRATION"};
 
@@ -404,7 +405,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
     private UsbService usbService;
     Timer timer_main;
     private MainHandler mainHandler;
-    private StringBuffer sb_packet = new StringBuffer();
+    private final StringBuffer sb_packet = new StringBuffer();
 
     boolean screenFlag = false;
     boolean mailFlag = false;
@@ -512,7 +513,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
                         MainActivity.sArr_wifiName.clear();
                         MainActivity.sArr_wifiSecurity.clear();
                         for (int i = 0; i < N; ++i) {
-                            MainActivity.sArr_wifiName.add(results.get(i).SSID.toString());
+                            MainActivity.sArr_wifiName.add(results.get(i).SSID);
                             MainActivity.sArr_wifiSecurity.add(results.get(i).capabilities);
                          /*   if (networkSSID.equals(results.get(i).SSID)) {
                                 connectWiFi(networkSSID, networkPass, results.get(i).capabilities);
@@ -719,7 +720,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
                 /* 안드로이드 -> 서버 파라메터값 전달 */
                 OutputStream outs = conn.getOutputStream();
-                outs.write(param.getBytes("UTF-8"));
+                outs.write(param.getBytes(StandardCharsets.UTF_8));
                 outs.flush();
                 outs.close();
 
@@ -848,7 +849,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
                 /* 안드로이드 -> 서버 파라메터값 전달 */
                 OutputStream outs = conn.getOutputStream();
-                outs.write(param.getBytes("UTF-8"));
+                outs.write(param.getBytes(StandardCharsets.UTF_8));
                 outs.flush();
                 outs.close();
 
@@ -993,7 +994,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
                 /* 안드로이드 -> 서버 파라메터값 전달 */
                 OutputStream outs = conn.getOutputStream();
-                outs.write(param.getBytes("UTF-8"));
+                outs.write(param.getBytes(StandardCharsets.UTF_8));
                 outs.flush();
                 outs.close();
 
@@ -1130,7 +1131,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
                 /* 안드로이드 -> 서버 파라메터값 전달 */
                 OutputStream outs = conn.getOutputStream();
-                outs.write(param.getBytes("UTF-8"));
+                outs.write(param.getBytes(StandardCharsets.UTF_8));
                 outs.flush();
                 outs.close();
 
@@ -1296,7 +1297,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
             protected void onPostExecute(String result) {
                 try {
-                    if(new JSONObject(result).getString("result").toString().equals("1")) {
+                    if(new JSONObject(result).getString("result").equals("1")) {
                         txt_Worktype.setVisibility(View.VISIBLE);
                         spWorkSelector.setVisibility(View.VISIBLE);
                         flag = true;
@@ -1553,7 +1554,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
                     /* 안드로이드 -> 서버 파라메터값 전달 */
                     OutputStream outs = conn.getOutputStream();
-                    outs.write(param.getBytes("UTF-8"));
+                    outs.write(param.getBytes(StandardCharsets.UTF_8));
                     outs.flush();
                     outs.close();
 
@@ -1663,9 +1664,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
             xworkbook.write(fileout);
             fileout.close();
         } catch(FileNotFoundException ex) {
-            ;
         } catch(IOException ex) {
-            ;
         }
     }
 
@@ -1675,7 +1674,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
         try {
             BufferedWriter fw = new BufferedWriter(new FileWriter("sdcard/Download/kkfQQ" + ".csv"));
             for(int i = 0; i < Data_sets.size(); i++) {
-                JSONObject jsonObject_SET = (JSONObject) miniList.get(i);
+                JSONObject jsonObject_SET = miniList.get(i);
                 mode = searchModeType(jsonObject_SET.getString("workoutmode_code"));
                 type = searchModeType(jsonObject_SET.getString("workouttype_code"));
                 for(int j = 0; j < Data_sets.get(i).size(); j++) {
@@ -1738,7 +1737,6 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
             Data_sets.removeAll(Data_sets);
             miniList.removeAll(miniList);
         } catch (Exception e) {
-            ;
         }
     }
 
@@ -1771,7 +1769,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
                     return sb.toString().trim();
 
                 } catch (Exception e) {
-                    return new String("Exception: " + e.getMessage());
+                    return "Exception: " + e.getMessage();
                 }
             }
 
@@ -1950,18 +1948,18 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
 
     public class SendMail_Async extends AsyncTask {
-        private String mailhost = "smtp.gmail.com";
+        private final String mailhost = "smtp.gmail.com";
         private Session session;
 
         String user = "ronfic.co@gmail.com";
         String password = "rf-00245";
         String sender = "론픽";
 
-        private Context context;
-        private String recipients;
-        private String subject;
-        private String body;
-        private String[] filePath;
+        private final Context context;
+        private final String recipients;
+        private final String subject;
+        private final String body;
+        private final String[] filePath;
 
         public SendMail_Async(Context context, String recipients, String subject, String body, String[] filePath){
             this.context = context;
@@ -2371,60 +2369,60 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
     private void initView() {
 
-        chart_lineChart = (LineChart) findViewById(R.id.chart_lineChart);
-        chart_barChart  = (BarChart) findViewById(R.id.chart_barChart);
+        chart_lineChart = findViewById(R.id.chart_lineChart);
+        chart_barChart  = findViewById(R.id.chart_barChart);
 
-        layout_values[0] = (LinearLayout) findViewById(R.id.layout_values1);
-        layout_values[1] = (LinearLayout) findViewById(R.id.layout_values2);
-        layout_values[2] = (LinearLayout) findViewById(R.id.layout_values3);
-        ModeSelectFragment.layout_exercise = (FrameLayout) findViewById(R.id.layout_exercise);
+        layout_values[0] = findViewById(R.id.layout_values1);
+        layout_values[1] = findViewById(R.id.layout_values2);
+        layout_values[2] = findViewById(R.id.layout_values3);
+        ModeSelectFragment.layout_exercise = findViewById(R.id.layout_exercise);
 
-        btn_selectActibity  = (Button) findViewById(R.id.btn_selectMode);
+        btn_selectActibity  = findViewById(R.id.btn_selectMode);
 
-        btn_mode    = (Button) findViewById(R.id.btn_mode);
-        btn_login   = (Button) findViewById(R.id.btn_login);
-        btn_logout  = (Button) findViewById(R.id.btn_logout);
-        btn_type    = (Button) findViewById(R.id.btn_type);
-        btn_guideVideo  = (Button) findViewById(R.id.btn_guideVideo);
+        btn_mode    = findViewById(R.id.btn_mode);
+        btn_login   = findViewById(R.id.btn_login);
+        btn_logout  = findViewById(R.id.btn_logout);
+        btn_type    = findViewById(R.id.btn_type);
+        btn_guideVideo  = findViewById(R.id.btn_guideVideo);
 
-        btn_reset   = (Button) findViewById(R.id.btn_reset);
+        btn_reset   = findViewById(R.id.btn_reset);
 
-        btn_wifi    = (Button) findViewById(R.id.btn_wifi);
+        btn_wifi    = findViewById(R.id.btn_wifi);
 
-        btn_force   = (Button) findViewById(R.id.btn_force);
-        btn_speed   = (Button) findViewById(R.id.btn_speed);
-        btn_power   = (Button) findViewById(R.id.btn_power);
+        btn_force   = findViewById(R.id.btn_force);
+        btn_speed   = findViewById(R.id.btn_speed);
+        btn_power   = findViewById(R.id.btn_power);
 
-        btn_screenShot = (Button) findViewById(R.id.btn_screenShot);
+        btn_screenShot = findViewById(R.id.btn_screenShot);
 
-        txt_userName    = (TextView) findViewById(R.id.txt_userName);
-        txt_mode        = (TextView) findViewById(R.id.txt_mode);
-        txt_avgForce    = (TextView) findViewById(R.id.txt_avgForce);
-        txt_avgSpeed    = (TextView) findViewById(R.id.txt_avgSpeed);
-        txt_avgPower    = (TextView) findViewById(R.id.txt_avgPower);
-        txt_maxForce    = (TextView) findViewById(R.id.txt_maxForce);
-        txt_maxSpeed    = (TextView) findViewById(R.id.txt_maxSpeed);
-        txt_maxPower    = (TextView) findViewById(R.id.txt_maxPower);
+        txt_userName    = findViewById(R.id.txt_userName);
+        txt_mode        = findViewById(R.id.txt_mode);
+        txt_avgForce    = findViewById(R.id.txt_avgForce);
+        txt_avgSpeed    = findViewById(R.id.txt_avgSpeed);
+        txt_avgPower    = findViewById(R.id.txt_avgPower);
+        txt_maxForce    = findViewById(R.id.txt_maxForce);
+        txt_maxSpeed    = findViewById(R.id.txt_maxSpeed);
+        txt_maxPower    = findViewById(R.id.txt_maxPower);
 
-        txt_wifiName    = (TextView) findViewById(R.id.txt_wifiName);
-        txt_errorCode   = (TextView) findViewById(R.id.txt_errorCode);
+        txt_wifiName    = findViewById(R.id.txt_wifiName);
+        txt_errorCode   = findViewById(R.id.txt_errorCode);
 
-        txt_set_avgforce = (TextView) findViewById(R.id.txt_set_avgforce);
-        txt_set_avgspeed = (TextView) findViewById(R.id.txt_set_avgspeed);
-        txt_set_avgpower = (TextView) findViewById(R.id.txt_set_avgpower);
-        txt_set_maxforce = (TextView) findViewById(R.id.txt_set_maxforce);
-        txt_set_maxspeed = (TextView) findViewById(R.id.txt_set_maxspeed);
-        txt_set_maxpower = (TextView) findViewById(R.id.txt_set_maxpower);
+        txt_set_avgforce = findViewById(R.id.txt_set_avgforce);
+        txt_set_avgspeed = findViewById(R.id.txt_set_avgspeed);
+        txt_set_avgpower = findViewById(R.id.txt_set_avgpower);
+        txt_set_maxforce = findViewById(R.id.txt_set_maxforce);
+        txt_set_maxspeed = findViewById(R.id.txt_set_maxspeed);
+        txt_set_maxpower = findViewById(R.id.txt_set_maxpower);
 
-        txt_rep = (TextView) findViewById(R.id.txt_rep);
-        txt_set = (TextView) findViewById(R.id.txt_set);
+        txt_rep = findViewById(R.id.txt_rep);
+        txt_set = findViewById(R.id.txt_set);
 
-        txt_workTime    = (TextView) findViewById(R.id.txt_workTime);
-        txt_breakTime   = (TextView) findViewById(R.id.txt_breakTime);
+        txt_workTime    = findViewById(R.id.txt_workTime);
+        txt_breakTime   = findViewById(R.id.txt_breakTime);
 
-        workSelector = (Spinner) findViewById(R.id.workSelector);
-        txt_Worktype = (TextView) findViewById(R.id.txt_Worktype);
-        spWorkSelector = (Spinner) findViewById(R.id.sp_worktype); //glenn 추가
+        workSelector = findViewById(R.id.workSelector);
+        txt_Worktype = findViewById(R.id.txt_Worktype);
+        spWorkSelector = findViewById(R.id.sp_worktype); //glenn 추가
         ArrayAdapter mArrayAdapter_work = ArrayAdapter.createFromResource(this, R.array.WorkArray, R.layout.spinner_item);
         workSelector.setAdapter(mArrayAdapter_work);
 
@@ -2498,7 +2496,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
         listArr_maxSpeedData.clear();
         d_listArr_maxSpeedData.clear();
         listArr_maxPowerData.clear();
-        d_listArr_maxSpeedData.clear();
+        d_listArr_maxPowerData.clear();
     }
 
     private void lineChartInit(){
@@ -3093,7 +3091,6 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
 
                                                                 //Log.e("후데이터19", listSet_Weight_bef.get(1).get(1)+ "   " + listSet_Speed_bef.get(1).get(1) + "   " + listSet_Weight_aft.get(1).get(1) + "   " + listSet_Speed_aft.get(1).get(1) + "   ");
                                                             } catch (IndexOutOfBoundsException ex) {
-                                                                ;
                                                             }
                                                             break;
                                                         case 2:
@@ -3612,7 +3609,6 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
                                 }
                             }
                         }else if(mailFlag) {
-                            ;
                         } else {
                             if(PublicValues.userId != null && PublicValues.userId.length() > 0){
                                 txt_userName.setText(PublicValues.userName + " 님");
@@ -3646,7 +3642,7 @@ public class ExerciseActivity extends Activity implements LoginPadFragment.OnTim
                             if(!bool_setFlag && mins > 9 && mins < 15){
                                 if(b_workStatusBit == 2){
                                     progressDialog.DialogStart();
-                                    publicFunctions.clearUserData();
+                                    PublicFunctions.clearUserData();
                                     Intent intent = new Intent(ExerciseActivity.this, MainActivity.class);
 
                                     if (timer_main != null) timer_main.cancel();

@@ -82,12 +82,12 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
 
     CRC16Modbus crc = new CRC16Modbus();
 
-    private String TAG = MainActivity.class.getSimpleName();
+    private final String TAG = MainActivity.class.getSimpleName();
 
-    private int PERMISSION_REQUEST_COARSE_LOCATION = 1;
-    private String MOTER_START_SERIAL = "F2010FA1000000000000000000000000000001FE";
-    private String MOTER_STOP_SERIAL = "F2010FA2000000000000000000000000000001FE";
-    private String TIME_ZONE = "Asia/Seoul";
+    private final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
+    private final String MOTER_START_SERIAL = "F2010FA1000000000000000000000000000001FE";
+    private final String MOTER_STOP_SERIAL = "F2010FA2000000000000000000000000000001FE";
+    private final String TIME_ZONE = "Asia/Seoul";
 
     LinearLayout layout_selectMode, layout_admin, layout_update;
 
@@ -106,7 +106,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
     private int i_stiction = 100;
     private int i_loadCell = 0;
 
-    initDialog initDialog = new initDialog(this);;
+    initDialog initDialog = new initDialog(this);
 
 
     boolean bool_breakStatus = false;
@@ -149,7 +149,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
     Timer timer_main, mTimer_service;
     TimerTask timeT_main;
     private MainHandler mainHandler;
-    private StringBuffer sb_packet = new StringBuffer();
+    private final StringBuffer sb_packet = new StringBuffer();
 
 
     NetworkInfo activeNetwork;
@@ -527,40 +527,40 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
 
     private void initView() {
 
-        layout_selectMode   = (LinearLayout) findViewById(R.id.layout_selectMode);
-        layout_admin        = (LinearLayout) findViewById(R.id.layout_admin);
-        layout_update       = (LinearLayout) findViewById(R.id.layout_update);
+        layout_selectMode   = findViewById(R.id.layout_selectMode);
+        layout_admin        = findViewById(R.id.layout_admin);
+        layout_update       = findViewById(R.id.layout_update);
 
 
-        txt_userInfo    = (TextView) findViewById(R.id.txt_userInfo);
+        txt_userInfo    = findViewById(R.id.txt_userInfo);
 
-        txt_ipAddress       = (TextView) findViewById(R.id.txt_networkInfo);
-        txt_wifiName        = (TextView) findViewById(R.id.txt_wifiName);
-        txt_serialNum       = (TextView) findViewById(R.id.txt_serialNum);
-        txt_clubId   = (TextView) findViewById(R.id.txt_clubId);
-        txt_loadCellValue   = (TextView) findViewById(R.id.txt_loadCellValue);
-        txt_loadCellValueMain   = (TextView) findViewById(R.id.txt_loadCellValueMain);
-        txt_stictionValue   = (TextView) findViewById(R.id.txt_stictionValue);
-        txt_Email = (TextView) findViewById(R.id.txt_Email);
+        txt_ipAddress       = findViewById(R.id.txt_networkInfo);
+        txt_wifiName        = findViewById(R.id.txt_wifiName);
+        txt_serialNum       = findViewById(R.id.txt_serialNum);
+        txt_clubId   = findViewById(R.id.txt_clubId);
+        txt_loadCellValue   = findViewById(R.id.txt_loadCellValue);
+        txt_loadCellValueMain   = findViewById(R.id.txt_loadCellValueMain);
+        txt_stictionValue   = findViewById(R.id.txt_stictionValue);
+        txt_Email = findViewById(R.id.txt_Email);
 
-        txt_errorCode   = (TextView) findViewById(R.id.txt_errorCode);
+        txt_errorCode   = findViewById(R.id.txt_errorCode);
 
-        txt_versionInfo = (TextView) findViewById(R.id.txt_versionInfo);
-        txt_conversionInfo  = (TextView) findViewById(R.id.txt_conversionInfo);
+        txt_versionInfo = findViewById(R.id.txt_versionInfo);
+        txt_conversionInfo  = findViewById(R.id.txt_conversionInfo);
 
-        btn_wifi            = (Button) findViewById(R.id.btn_wifi);
-        btn_logOut          = (Button) findViewById(R.id.btn_logOut);
-        btn_exerciseMode    = (Button) findViewById(R.id.btn_exerciseMode);
-        btn_login           = (Button) findViewById(R.id.btn_login);
-        btn_measure         = (Button) findViewById(R.id.btn_measure);
-        btn_admin           = (Button) findViewById(R.id.btn_admin);
-        btn_back            = (Button) findViewById(R.id.btn_back);
-        btn_reset           = (Button) findViewById(R.id.btn_reset);
-        btn_update          = (Button) findViewById(R.id.btn_update);
+        btn_wifi            = findViewById(R.id.btn_wifi);
+        btn_logOut          = findViewById(R.id.btn_logOut);
+        btn_exerciseMode    = findViewById(R.id.btn_exerciseMode);
+        btn_login           = findViewById(R.id.btn_login);
+        btn_measure         = findViewById(R.id.btn_measure);
+        btn_admin           = findViewById(R.id.btn_admin);
+        btn_back            = findViewById(R.id.btn_back);
+        btn_reset           = findViewById(R.id.btn_reset);
+        btn_update          = findViewById(R.id.btn_update);
 
-        btn_reboot          = (Button) findViewById(R.id.btn_reboot);
+        btn_reboot          = findViewById(R.id.btn_reboot);
 
-        image_initial       = (ImageView) findViewById(R.id.image_initial);
+        image_initial       = findViewById(R.id.image_initial);
 
         txt_errorCode.setVisibility(View.GONE);
         layout_update.setVisibility(View.GONE);
@@ -624,9 +624,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                 deleteApk(result);
 
 
-
-                if(versionNum.equals(result))   mUpdatePlease = false;
-                else                            mUpdatePlease = true;
+                mUpdatePlease = !versionNum.equals(result);
             }
         }
         GetDataJSON json = new GetDataJSON();
@@ -653,7 +651,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                     saveItemsToFile();
                     String pckName = lastVersionInfo.replace(".", "");
                     Log.e(TAG, "deleteApk : pckName = " + pckName);
-                    Uri uri = Uri.fromParts("package", "com.example.miniplus_dev_" + pckName.toString(), null);
+                    Uri uri = Uri.fromParts("package", "com.example.miniplus_dev_" + pckName, null);
                     lastVersionInfo = versionNum;
                     Intent delIntent = new Intent(Intent.ACTION_DELETE, uri);
                     startActivity(delIntent);
@@ -661,7 +659,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                 else if(Integer.parseInt(versionNum.replace(".", "")) < Integer.parseInt(lastVersionInfo.replace(".", ""))){
                     String pckName = versionNum.replace(".", "");
                     Log.e(TAG, "deleteApk : pckName = " + pckName);
-                    Uri uri = Uri.fromParts("package", "com.example.miniplus_dev_" + pckName.toString(), null);
+                    Uri uri = Uri.fromParts("package", "com.example.miniplus_dev_" + pckName, null);
                     Intent delIntent = new Intent(Intent.ACTION_DELETE, uri);
                     startActivity(delIntent);
                 }
@@ -770,7 +768,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                                         int velData = ((((int) Bytebuf[7]) << 8) | ((int) Bytebuf[8] & 0xff));
                                         int loadData = ((((int) Bytebuf[9]) << 8) | ((int) Bytebuf[10] & 0xff));
                                         int stiction = ((int) Bytebuf[38] & 0xff);
-                                        int loadCell = (int)(((Bytebuf[36]& 0xff) << 8) | (Bytebuf[37] & 0xff));
+                                        int loadCell = ((Bytebuf[36]& 0xff) << 8) | (Bytebuf[37] & 0xff);
                                         Log.e("stiction", stiction +"");
                                         mainActivity.get().i_stiction = stiction;   //질문
                                         mainActivity.get().i_loadCell = loadCell;
@@ -920,8 +918,8 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        sStr_wifiSelItem = sArr_wifiName.get(position).toString();
-                        sStr_wifiSelItemSecu = sArr_wifiSecurity.get(position).toString();
+                        sStr_wifiSelItem = sArr_wifiName.get(position);
+                        sStr_wifiSelItemSecu = sArr_wifiSecurity.get(position);
                     }
                 });
 
@@ -1049,7 +1047,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                 PublicValues.userAge = 0;
 
                 btn_logOut.setVisibility(View.GONE);
-                txt_userInfo.setVisibility(View.GONE);;
+                txt_userInfo.setVisibility(View.GONE);
                 btn_measure.setVisibility(View.GONE);
                 btn_login.setVisibility(View.VISIBLE);
                 btn_exerciseMode.setBackgroundResource(R.drawable.btn_guest);
@@ -1212,7 +1210,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
 
         if(PublicValues.userId != null && PublicValues.userId.length() > 0){
             btn_logOut.setVisibility(View.VISIBLE);
-            txt_userInfo.setVisibility(View.VISIBLE);;
+            txt_userInfo.setVisibility(View.VISIBLE);
             txt_userInfo.setText(PublicValues.userName);
             btn_login.setVisibility(View.GONE);
             btn_measure.setVisibility(View.VISIBLE);
@@ -1220,7 +1218,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
         }
         else{
             btn_logOut.setVisibility(View.GONE);
-            txt_userInfo.setVisibility(View.GONE);;
+            txt_userInfo.setVisibility(View.GONE);
             btn_measure.setVisibility(View.GONE);
             btn_login.setVisibility(View.VISIBLE);
             btn_exerciseMode.setBackgroundResource(R.drawable.btn_guest);
@@ -1293,7 +1291,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
 
                         if(PublicValues.userId != null && PublicValues.userId.length() > 0){
                             btn_logOut.setVisibility(View.VISIBLE);
-                            txt_userInfo.setVisibility(View.VISIBLE);;
+                            txt_userInfo.setVisibility(View.VISIBLE);
                             txt_userInfo.setText(PublicValues.userName);
                             btn_login.setVisibility(View.GONE);
                             btn_measure.setVisibility(View.VISIBLE);
@@ -1301,7 +1299,7 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                         }
                         else{
                             btn_logOut.setVisibility(View.GONE);
-                            txt_userInfo.setVisibility(View.GONE);;
+                            txt_userInfo.setVisibility(View.GONE);
                             btn_measure.setVisibility(View.GONE);
                             btn_login.setVisibility(View.VISIBLE);
                             btn_exerciseMode.setBackgroundResource(R.drawable.btn_guest);
@@ -1323,13 +1321,13 @@ public class MainActivity extends Activity implements LoginPadFragment.OnTimePic
                         if(bool_measureFlag){
                             if(b_workoutBit == 1 && !bool_breakStatus){ //질문
                                 bool_measureFlag = false;
-                                if(PublicValues.club_id.equals("1144")) {
-                                    Intent intent = new Intent(MainActivity.this, MeasureTestActivity2.class);
-                                    startActivity(intent);
-                                } else {
+                                //if(PublicValues.club_id.equals("1144")) {
+                                //    Intent intent = new Intent(MainActivity.this, MeasureTestActivity2.class);
+                                //    startActivity(intent);
+                                //} else {
                                     Intent intent = new Intent(MainActivity.this, MeasureTestActivity.class);
                                     startActivity(intent);
-                                }
+                                //}
 
 
                                 if (timer_main != null) timer_main.cancel();
